@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb+srv://schooldatabase:schooldatabase12345@schooldatabase.eyupq.mongodb.net/?retryWrites=true&w=majority&appName=SchoolDataBase
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: always
+
+
+
+
+# version: "3.8"
+
+# services:
+#   app:
+#     build: .
+#     ports:
+#       - "5000:5000"
+#     depends_on:
+#       - mongo
+#     environment:
+#       - MONGO_URI=mongodb+srv://schooldatabase:schooldatabase12345@schooldatabase.eyupq.mongodb.net/?retryWrites=true&w=majority&appName=SchoolDataBase
+#     volumes:
+#       - .:/app
+#       - /app/node_modules
+#     restart: always
+
+#   mongo:
+#     image: mongo
+#     ports:
+#       - "27017:27017"
+#     environment:
+#       MONGO_INITDB_ROOT_USERNAME: admin
+#       MONGO_INITDB_ROOT_PASSWORD: password
+#     volumes:
+#       - mongo_data:/data/db
+
+# volumes:
+#   mongo_data:
